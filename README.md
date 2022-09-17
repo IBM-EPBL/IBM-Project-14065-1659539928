@@ -5,7 +5,7 @@ Team Lead:
 Yogitha Vijayakumar
 
 Members: 
-Soundharya G
-Shiva Sankari C
-Sneha Priyadharshini V:
+Soundharya G,
+Shiva Sankari C,
+Sneha Priyadharshini V
 
