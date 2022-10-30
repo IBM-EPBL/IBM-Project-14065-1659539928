@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="login_card">
+        <div class="direct_login">
+            <div class="google">
+                  <img src="images/google.png" alt="Google icon">
+                  <p>&nbsp Login with Google</p>
+            </div>
+            <div class="github">
+                <img src="images/github.png" alt="Github icon">
+                <p>&nbsp Login with Github</p>
+            </div>
+        </div>
+      <input type="text" name="email" id="email" placeholder="Email">
+      <div class="password">
+        <input type="text" name="password" id="password" placeholder="Password">
+        <i class="fa fa-eye" aria-hidden="true" onclick="hide_password()"></i>
+      </div>
+      <input type="submit" value="Sign In">
+      <a href="#">Forgot your password?</a>
+      <hr>
+      <button>Create a new account</button>
+    </form>  
+  </body>
+  <script src="index.js"></script>
+</html>
