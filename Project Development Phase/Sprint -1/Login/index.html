@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="login_card" id="login_form">
+        <div class="direct_login">
+            <div class="google">
+                  <img src="images/google.png" alt="Google icon">
+                  <a><p id="googleBtn">&nbsp Login with Google</p></a>
+            </div>
+            <div class="github">
+                <img src="images/github.png" alt="Github icon">
+                <a><p id="githubBtn">&nbsp Login with Github</p></a>
+            </div>
+        </div>
+      <input type="email" name="email" id="email" placeholder="Email" >
+      <div class="password">
+        <input type="text" name="password" id="password" placeholder="Password">
+        <i class="fa fa-eye" aria-hidden="true" onclick="hide_password()"></i>
+      </div>
+      <input type="submit" id="submitData" value="Sign In">
+      <a href="#">Forgot your password?</a>
+      <hr>
+      <a href="../Register/index.html"><button>Create a new account</button></a>
+    </form>  
+  </body>
+  <script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+  import {getAuth, signInWithEmailAndPassword,GoogleAuthProvider,signInWithRedirect, getRedirectResult, GithubAuthProvider} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+  import {getDatabase,update,ref,child} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyDmOw1s9Zt51D-HpM1YXGGii6Bp-PiYKAc",
+    authDomain: "employeeattrition-49dff.firebaseapp.com",
+    projectId: "employeeattrition-49dff",
+    storageBucket: "employeeattrition-49dff.appspot.com",
+    messagingSenderId: "1098440290862",
+    appId: "1:1098440290862:web:a6b3f0a17bb42dd54625bf"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  // Initialize variables
+  const auth = getAuth(app);
+  const database = getDatabase(app);
+  const provider = new GoogleAuthProvider(app);
+
+  const provider1 = new GithubAuthProvider(app);
+
+  githubBtn.addEventListener('click', (e)=> {
+    signInWithRedirect(auth, provider1);
+    getRedirectResult(auth)
+  .then((result) => {
+    const credential = GithubAuthProvider.credentialFromResult(result);
+    if (credential) {
+      // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+      const token = credential.accessToken;
+      // ...
+    }
+
+    // The signed-in user info.
+    const user = result.user;
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GithubAuthProvider.credentialFromError(error);
+    // ...
+    
+  });
+  })
+
+  googleBtn.addEventListener('click', (e)=> {
+    signInWithRedirect(auth, provider);
+
+    getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  })
+  })
+
+  submitData.addEventListener('click',(e)=> {
+    e.preventDefault()
+    var password = document.getElementById("password").value
+    var email = document.getElementById('email').value
+    if(email==null || password==null){
+      alert('Cannot be empty')
+        return
+    }
+    if(email==0 || password==0){
+      alert('Cannot be empty')
+        return
+    }
+    
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredentials) => {
+     const user = userCredentials.user;
+     const database_ref = ref(database);
+     var lgDate = new Date();
+     update(child(database_ref,'users/'+user.uid),{
+         last_login : lgDate
+     })
+     .then(() => {
+        alert('Logged in Successfully!!')
+      })
+      .catch((error) => {
+        var error_code = error.code
+        var error_message = error.message 
+        alert(error_message)
+      });
+      document.getElementById('login_form').reset();
+    })
+    
+    .catch((error) => {
+     var error_code = error.code
+     var error_message = error.message 
+     alert(error_message)
+    });
+  });
+  </script>
+  <script src="index.js"></script>
+</html>
