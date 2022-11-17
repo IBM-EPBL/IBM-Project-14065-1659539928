@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attrition Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="apphr.js"></script>
+	<link rel="stylesheet" href="apphr.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class = main>
+        <h1><center>HR ATTRITION PREDICTION</center></h1>
+        <div class="sub">
+            <form>
+                <div class="heading"><h2>Enter your Details</h2><br></div>
+                <div class="subform">
+                    <label>Age </label><br><br>
+                    <input class="inputcls" type = "number" id = "idage" name = "age" placeholder = "Enter your age" min="0" onkeyup="storeValue(event)" onchange="storeValue(event)"><br><br>
+                    <label>How frequently do you travel?</label><br><br>
+                    <select class="options" id="idtravel" onchange="storeValue(event)">
+                        <option>Non-Travel</option>
+                        <option>Frequently</option>
+                        <option>Rarely</option>
+                    </select><br><br>
+                    <label>Daily rate of team members leaving the team</label><br><br>
+                    <input class="inputcls" type = "text" id = "iddr" name = "dr" placeholder = "Enter the dailyrate" onkeyup="storeValue(event)"><br><br>
+                    <label>Department</label><br><br>
+                    <select class="options" id="iddept" onchange="storeValue(event)">
+                        <option>Sales</option>
+                        <option>Research and Development</option>
+                        <option>Human Resources</option>
+                    </select><br><br>
+                    <label>Distance from home (In Kms)</label><br><br>
+                    <input class="inputcls" type = "text" id = "iddistfrmhm" name = "distfrmhm" placeholder = "Enter the distance" onkeyup="storeValue(event)"><br><br>
+                    <label>Educational qualification level (0 - 5)</label><br><br>
+                    <input class="inputcls" type = "number" id = "ideql" name = "eql" placeholder = "Enter the level" min="0" max="5" onkeyup="storeValue(event)" onchange="storeValue(event)"><br><br>
+                    <input type="button" class="button" onclick="window.location.href = 'file:///C:/Users/Sathish/OneDrive/Desktop/hr%20attrition%20prediction/clienthr/secondpage.html';" value="Next page"/><br><br>                
+                </div>
+            </form>
+            <img src="form_bg.jpg" alt="Image" class="form_img">
+        </div>
+    </div>
+</body>
+</html>

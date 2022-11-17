@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attrition Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="apphr.js"></script>
+	<link rel="stylesheet" href="apphr.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class = main>
+        <h1><center>HR ATTRITION PREDICTION</center></h1>
+        <div class="sub">
+            <form>
+                <div class="heading"><h2>Enter your Details</h2><br></div>
+                <div class="subform">
+                    <label>Percentage of salary hike</label><br><br>
+                    <input type = "text" class="inputcls" id = "idposh" name = "posh" placeholder = "Enter your salary hike percent" onkeyup="storeValue(event)"><br><br>
+                    <label>Performance Rating (0 - 5)</label><br><br>
+                    <input class="inputcls" type = "number" id = "idpr" name = "pr" placeholder = "Enter your rating" min="0" max="5" onkeyup="storeValue(event)" onchange="storeValue(event)"><br><br>
+                    <label>Relationship satisfaction level (0 - 5) </label><br><br>
+                    <input class="inputcls" type = "number" id = "idrsl" name = "rsl" placeholder = "Enter the level" min="0" max="5" onkeyup="storeValue(event)" onchange="storeValue(event)"><br><br>
+                    <label>Stock Option level (0 - 5) </label><br><br>
+                    <input class="inputcls" type = "number" id = "idsol" name = "sol" placeholder = "Enter the level" min="0" max="5" onkeyup="storeValue(event)" onchange="storeValue(event)"><br><br>
+                    <label>Experience (Total Working Years)</label><br><br>
+                    <input class="inputcls" type = "text" id = "idtwy" name = "twy" placeholder = "Enter your number of working years" onkeyup="storeValue(event)"><br><br>
+                    <label>How many hours of Training ?</label><br><br>
+                    <input class="inputcls" type = "number" id = "idth" name = "th" placeholder = "Enter the training hours" min="0" onkeyup="storeValue(event)" onchange="storeValue(event)"><br><br>
+                    <input type="button" class="action_btn prevbutton" onclick="window.location.href = 'file:///C:/Users/Sathish/OneDrive/Desktop/hr%20attrition%20prediction/clienthr/thirdpage.html';" value="Previous page"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    <input type="button" class="action_btn button" onclick="window.location.href = 'file:///C:/Users/Sathish/OneDrive/Desktop/hr%20attrition%20prediction/clienthr/fifthpage.html';" value="Next page"/><br><br>
+                </div>
+            </form>
+            <img src="form_bg.jpg" alt="Image" class="form_img">
+        </div>
+    </div>
+
+</body>
+</html>

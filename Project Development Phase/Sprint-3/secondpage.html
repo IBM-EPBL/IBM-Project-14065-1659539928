@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attrition Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="apphr.js"></script>
+	<link rel="stylesheet" href="apphr.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class = main>
+        <h1><center>HR ATTRITION PREDICTION</center></h1>
+        <div class="sub">
+            <form>
+                <div class="heading"><h2>Enter your Details</h2><br></div>
+                <div class="subform">
+                    <label>Education field</label><br><br>
+                    <select class="options" id="idef" onchange="storeValue(event)">
+                        <option>human resources</option>
+                        <option>life sciences</option>
+                        <option>marketing</option>
+                        <option>medical</option>
+                        <option>technical degree</option>
+                        <option>other</option>
+                    </select><br><br>
+                    <label>Environmental satisfaction level (0 - 5) </label><br><br>
+                    <input class="inputcls" type = "number" id = "idesl" name = "esl" placeholder = "Enter the level" min="0" max="5" onkeyup="storeValue(event)" onchange="storeValue(event)"><br><br>
+                    <label for="gender">Gender</label><br><br>
+                    <select class="options" id="gender" onchange="storeValue(event)">
+                        <option>human resources</option>
+                        <option>life sciences</option>
+                    </select><br><br>
+                    <!--<input type="radio" id="gender" name="gender" value="male"  onclick="storeValue(event)">
+                    <label class="radiocls" for="gender">Male</label> &nbsp &nbsp &nbsp
+                    <input type="radio" id="gender" name="gender" value="female" onclick="storeValue(event)">
+                    <label class="radiocls" for="gender">Female</label><br><br>-->
+                    <label>Hourly rate of team members leaving the team</label><br><br>
+                    <input type = "text" class="inputcls" id = "idhr" name = "hr" placeholder = "Enter the hourlyrate" onkeyup="storeValue(event)"><br><br>
+                    <label>Job Involvement level (0 - 5) </label><br><br>
+                    <input class="inputcls" type = "number" id = "idjil" name = "jil" placeholder = "Enter the level" min="0" max="5" onkeyup="storeValue(event)" onchange="storeValue(event)"><br><br>
+                    <label>Job level (0 - 5) </label><br><br>
+                    <input class="inputcls" type = "number" id = "idjl" name = "jl" placeholder = "Enter the level" min="0" max="5" onkeyup="storeValue(event)" onchange="storeValue(event)"><br><br>
+                    <input type="button" class="action_btn prevbutton" onclick="window.location.href = 'file:///C:/Users/Sathish/OneDrive/Desktop/hr%20attrition%20prediction/clienthr/firstpage.html';" value="Previous page"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    <input type="button" class="action_btn button" onclick="window.location.href = 'file:///C:/Users/Sathish/OneDrive/Desktop/hr%20attrition%20prediction/clienthr/thirdpage.html';" value="Next page"/><br><br>
+                </div>
+            </form>
+            <img src="form_bg.jpg" alt="Image" class="form_img">
+        </div>
+    </div>
+</body>
+</html>
