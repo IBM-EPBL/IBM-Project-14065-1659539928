@@ -28,26 +28,6 @@
 //     return -1; 
 // }
 
-function overtimeValue() 
-{
-    var overtime= document.getElementsByName("ot");
-    var output;
-    for(var i in overtime)
-    {
-        if(overtime[i].checked)
-        {
-            output = overtime[i].value;
-        }
-    }
-    if(output.localecompare("yess"))
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
 
 // function above18Value(age) 
 // {  
@@ -79,89 +59,56 @@ function onClickedEstimatedAttrition(){
     console.log("gender "+gender);
     var travel = sessionStorage.getItem("idtravel");
     console.log("travel "+travel);
-    var dailyrate = sessionStorage.getItem("iddr");
-    console.log("dailyrate "+dailyrate);
     var dept = sessionStorage.getItem("iddept");
     console.log("dept "+dept);
     var distancefromhome = sessionStorage.getItem("iddistfrmhm");
     console.log("distancefromhome "+distancefromhome);
     var education = sessionStorage.getItem("ideql");
     console.log("education "+education);
-    var overtime = sessionStorage.getItem("ot");
-    console.log("overtime "+overtime);
     var edu = sessionStorage.getItem("idef");
     console.log("edu "+edu);
-    var environmentsatisfaction = sessionStorage.getItem("idesl");
-    console.log("environmentsatisfaction "+environmentsatisfaction);
-    var hourlyrate = sessionStorage.getItem("idhr");
-    console.log("hourlyrate "+hourlyrate);
-    var jobinvolvement = sessionStorage.getItem("idjil");
-    console.log("jobinvolvement "+jobinvolvement);
     var joblevel = sessionStorage.getItem("idjl");
     console.log("joblevel "+joblevel);
     var jobrole = sessionStorage.getItem("idjobrole");
     console.log("jobrole "+jobrole);
-    var jobsatisfaction = sessionStorage.getItem("idjsl");
-    console.log("jobsatisfaction "+jobsatisfaction);
     var maritalstatus = sessionStorage.getItem("ms");
     console.log("maritalstatus "+maritalstatus);
     var montlyincome = sessionStorage.getItem("idmi");
     console.log("montlyincome "+montlyincome);
-    var monthlyrate = sessionStorage.getItem("idmr");
-    console.log("monthlyrate "+monthlyrate);
     var numcompaniesworked = sessionStorage.getItem("idnocw");
     console.log("numcompaniesworked "+numcompaniesworked);
     var percentsalaryhike = sessionStorage.getItem("idposh");
     console.log("percentsalaryhike "+percentsalaryhike);
-    var performancerating = sessionStorage.getItem("idpr");
-    console.log("performancerating "+performancerating);
-    var relationshipsatisfaction = sessionStorage.getItem("idrsl");
-    console.log("relationshipsatisfaction "+relationshipsatisfaction);
     var stockoptionlevel = sessionStorage.getItem("idsol");
     console.log("stockoptionlevel "+stockoptionlevel);
     var totalworkingyears = sessionStorage.getItem("idtwy");
     console.log("totalworkingyears "+totalworkingyears);
     var trainingtimeslastyear = sessionStorage.getItem("idth");
     console.log("ovetrainingtimeslastyearrtime "+trainingtimeslastyear);
-    var worklifebalance = sessionStorage.getItem("idwlb");
-    console.log("worklifebalance "+worklifebalance);
     var yearsatcompany = sessionStorage.getItem("idworkingyears");
     console.log("yearsatcompany "+yearsatcompany);
-    var yearsincurrentrole = sessionStorage.getItem("idcurrentrole");
-    console.log("yearsincurrentrole "+yearsincurrentrole);
     var yearssincelastpromotion = sessionStorage.getItem("idlastpromotion");
     console.log("yearssincelastpromotion "+yearssincelastpromotion);
     var yearswithcurrmanager = sessionStorage.getItem("idcm");
     console.log("yearswithcurrmanager "+yearswithcurrmanager);
     var estAttrition = document.getElementById("uiEstimatedAttrition");
     console.log(estAttrition);
-    var url = "http://127.0.0.1:5000/predict_attrition"; //Use this if you are NOT using nginx which is first 7 tutorials
+    var url = "http://127.0.0.1:8080/predict_attrition"; //Use this if you are NOT using nginx which is first 7 tutorials
     //var url = "/api/predict_attrition"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
   
     $.post(url,{
         age: parseInt(age),
-        dailyrate: parseFloat(dailyrate),
         distancefromhome: parseFloat(distancefromhome),  
         education: parseInt(education),
-        environmentsatisfaction: parseInt(environmentsatisfaction),
-        hourlyrate: parseFloat(hourlyrate),
-        jobinvolvement: parseInt(jobinvolvement),
         joblevel: parseInt(joblevel),
-        jobsatisfaction: parseInt(jobsatisfaction),
         montlyincome: parseFloat(montlyincome),
-        monthlyrate: parseFloat(monthlyrate),
         numcompaniesworked: parseInt(numcompaniesworked),
         over18: parseInt(over18),
-        overtime: parseInt(overtime),
         percentsalaryhike: parseFloat(percentsalaryhike),
-        performancerating: parseInt(performancerating),
-        relationshipsatisfaction: parseInt(relationshipsatisfaction),
         stockoptionlevel: parseInt(stockoptionlevel),
         totalworkingyears: parseFloat(totalworkingyears),
         trainingtimeslastyear: parseInt(trainingtimeslastyear),
-        worklifebalance: parseInt(worklifebalance),
         yearsatcompany: parseFloat(yearsatcompany),
-        yearsincurrentrole: parseFloat(yearsincurrentrole),
         yearssincelastpromotion: parseFloat(yearssincelastpromotion),
         yearswithcurrmanager: parseFloat(yearswithcurrmanager),
         travel: travel,
@@ -181,7 +128,7 @@ function onClickedEstimatedAttrition(){
   function onPageLoad() 
   {
     console.log( "document loaded" );
-    var url = "http://127.0.0.1:5000/get_travel_details"; // Use this if you are NOT using nginx which is first 7 tutorials
+    var url = "http://127.0.0.1:8080/get_travel_details"; // Use this if you are NOT using nginx which is first 7 tutorials
     //var url = "/api/get_location_names"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
     $.get(url,function(data, status) {
         console.log("got response for get_travel_details request");
@@ -195,7 +142,7 @@ function onClickedEstimatedAttrition(){
             }
         }
     });
-    var url = "http://127.0.0.1:5000/get_gender_details"; // Use this if you are NOT using nginx which is first 7 tutorials
+    var url = "http://127.0.0.1:8080/get_gender_details"; // Use this if you are NOT using nginx which is first 7 tutorials
     //var url = "/api/get_location_names"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
     $.get(url,function(data, status) {    
         console.log("got response for get_gender_details request");
@@ -209,7 +156,7 @@ function onClickedEstimatedAttrition(){
             }
         }
     });
-    var url = "http://127.0.0.1:5000/get_education_details"; // Use this if you are NOT using nginx which is first 7 tutorials
+    var url = "http://127.0.0.1:8080/get_education_details"; // Use this if you are NOT using nginx which is first 7 tutorials
     //var url = "/api/get_location_names"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
     $.get(url,function(data, status) {
         console.log("got response for get_education_details request");
@@ -224,7 +171,7 @@ function onClickedEstimatedAttrition(){
             }
         }
     });
-    var url = "http://127.0.0.1:5000/get_dept_details"; // Use this if you are NOT using nginx which is first 7 tutorials
+    var url = "http://127.0.0.1:8080/get_dept_details"; // Use this if you are NOT using nginx which is first 7 tutorials
     //var url = "/api/get_location_names"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
     $.get(url,function(data, status) {
         console.log("got response for get_dept_details request");
@@ -238,7 +185,7 @@ function onClickedEstimatedAttrition(){
             }
         }
     });
-    var url = "http://127.0.0.1:5000/get_jobrole_details"; // Use this if you are NOT using nginx which is first 7 tutorials
+    var url = "http://127.0.0.1:8080/get_jobrole_details"; // Use this if you are NOT using nginx which is first 7 tutorials
     //var url = "/api/get_location_names"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
     $.get(url,function(data, status) {
         console.log("got response for get_jobrole_details request");
@@ -252,7 +199,7 @@ function onClickedEstimatedAttrition(){
             }
         }
     });
-    var url = "http://127.0.0.1:5000/get_maritalstatus_details"; // Use this if you are NOT using nginx which is first 7 tutorials
+    var url = "http://127.0.0.1:8080/get_maritalstatus_details"; // Use this if you are NOT using nginx which is first 7 tutorials
     //var url = "/api/get_location_names"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
     $.get(url,function(data, status) {
         console.log("got response for get_maritalstatus_details request");
