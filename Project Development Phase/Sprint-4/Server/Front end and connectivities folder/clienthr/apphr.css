@@ -1,0 +1,172 @@
+body
+{
+    background-color:rgba(48,49,54,255);
+    font-family:arial;
+}
+
+label
+{
+    font-size:19px;
+    color:#fff;
+}
+
+h1
+{
+    color:#fff;
+}
+
+.heading
+{
+    width:100%;
+    padding-top: 4px;
+    color:#fff;
+    background-color: rgba(70,72,87,255);
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+form
+{
+    margin:2% 38%;
+    width:26%;
+    background-color: rgba(36,37,42,255);
+    box-shadow:2px 2px 5px rgba(0,0,0,0.7);
+    border-radius: 20px;
+}
+
+.subform
+{
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.button
+{
+    width: 22.5%;
+    background-color:rgba(29,163,215,255);
+    margin-left:70%;
+    color:#fff;
+    border-radius:7px;
+    border:1px solid #e5e4e2c2;
+    padding:5px;
+    cursor:pointer;
+}
+
+.button:active 
+{
+    transform: translateY(4px);
+}
+
+.inputcls
+{
+    height:25px;
+    width:88%;
+    border:0.5px solid #e5e4e2c2;
+    border-radius:5px;
+    outline:0;
+    padding:5px;
+    background-color: rgba(72,71,85,255);
+    color:#9e9fa5;
+}
+
+.options
+{
+    height:35px;
+    width:91%;
+    border:0.5px solid #e5e4e2c2;
+    border-radius:5px;
+    outline:0;
+    padding:5px;
+    background-color: rgba(72,71,85,255);
+    color:#9e9fa5;
+}
+
+.radiocls
+{
+    font-size:17px;
+}
+
+.bigcls
+{
+    font-size:16px;
+}
+
+.submit
+{
+    width:41%;
+    padding:8px;
+    font-size:16px;
+    font-weight:bold;
+    border:none;
+    background-color:rgba(29,163,215,255);
+    color:#fff;
+    border:1px solid #e5e4e2c2;
+    border-radius:4px;
+    box-shadow:1px 2px 5px rgba(0,0,0,0.7);
+    margin-left:28%;
+    cursor: pointer;
+}
+
+.submit:active 
+{
+    transform: translateY(4px);
+}
+
+.result
+{
+    width:36.5%;
+    padding:8px;
+    font-size:16px;
+    font-weight:bold;
+    border:none;
+    background-color:rgba(29,163,215,255);
+    color:#fff;
+    border:1px solid #e5e4e2c2;
+    border-radius:4px;
+    box-shadow:1px 2px 5px rgba(0,0,0,0.7);
+    margin-left:28%;
+    cursor: pointer;
+}
+
+.prevbutton
+{
+    width: 30%;
+    background-color:rgba(29,163,215,255);
+    margin-left:0%;
+    color:#fff;
+    border-radius:7px;
+    border:1px solid #e5e4e2c2;
+    padding:5px;
+    cursor:pointer;
+    display:inline block;
+}
+
+.button
+{
+    width: 22.5%;
+    background-color:rgba(29,163,215,255);
+    margin-left:70%;
+    color:#fff;
+    border-radius:7px;
+    border:1px solid #e5e4e2c2;
+    padding:5px;
+    cursor:pointer;
+    display:inline block;
+}
+
+.button:active 
+{
+    transform: translateY(4px);
+}
+
+.prevbutton:active 
+{
+    transform: translateY(4px);
+}
+
+.action_btn
+{
+    display:inline block;
+    margin : 0 auto;
+}
