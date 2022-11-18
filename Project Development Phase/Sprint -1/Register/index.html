@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/register.css">
 </head>
 <body>
-    <form class="login_card" id="login_form">
+  <div class="login">
+    <form class="login_card" id="login_form" method='POST'>
         <div class="direct_login">
             <div class="google">
-                  <img src="images/google.png" alt="Google icon">
+                  <img src="../static/google.png" alt="Google icon">
                   <a><p id="googleBtn">&nbsp Continue with Google</p></a>
             </div>
             <div class="github">
-                <img src="images/github.png" alt="Github icon">
+                <img src="../static/github.png" alt="Github icon">
                 <a><p id="githubBtn">&nbsp Continue with Github</p></a>
             </div>
         </div>
@@ -31,132 +32,11 @@
       </div>
     <input type="submit" id="submitData" value="Sign In">
       
-      <a href="../Login/index.html">Already have an account?</a>
+      
     </form>  
+    <a id="account" href="/">Already have an account?</a>
+  </div>
   </body>
-  <script type="module">
-    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-  import {getAuth, signInWithEmailAndPassword,GoogleAuthProvider,signInWithRedirect, getRedirectResult, GithubAuthProvider} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-  import {getDatabase,update,ref,child} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
-  const firebaseConfig = {
-    apiKey: "AIzaSyDmOw1s9Zt51D-HpM1YXGGii6Bp-PiYKAc",
-    authDomain: "employeeattrition-49dff.firebaseapp.com",
-    projectId: "employeeattrition-49dff",
-    storageBucket: "employeeattrition-49dff.appspot.com",
-    messagingSenderId: "1098440290862",
-    appId: "1:1098440290862:web:a6b3f0a17bb42dd54625bf"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-
-  // Initialize variables
-  const auth = getAuth(app);
-  const database = getDatabase(app);
-  const provider = new GoogleAuthProvider(app);
-  const provider1 = new GithubAuthProvider(app);
-
-  githubBtn.addEventListener('click', (e)=> {
-    signInWithRedirect(auth, provider1);
-    getRedirectResult(auth)
-  .then((result) => {
-    const credential = GithubAuthProvider.credentialFromResult(result);
-    if (credential) {
-      // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-      const token = credential.accessToken;
-      // ...
-    }
-
-    // The signed-in user info.
-    const user = result.user;
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GithubAuthProvider.credentialFromError(error);
-    // ...
-  });
-  })
-
-  googleBtn.addEventListener('click', (e)=> {
-    signInWithRedirect(auth, provider);
-
-    getRedirectResult(auth)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access Google APIs.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-
-    // The signed-in user info.
-    const user = result.user;
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  })
-  })
-
-
-  submitData.addEventListener('click',(e)=> {
-    e.preventDefault()
-    var password = document.getElementById("password").value
-    var email = document.getElementById('email').value
-    var Name = document.getElementById('name').value
-    var con_password = document.getElementById('con_password').value
-    if(validate_password(password)==false){
-     alert('Password should be of length more than 6')
-     return
-    }
-    if(check_password()==false){
-     return 
-    }
-
-    if(email==null || password==null || con_password==null || Name==null){
-        alert('Cannot be empty')
-        return
-    }
-    if(email==0 || password==0 || con_password==0 || Name==0){
-        alert('Cannot be empty')
-        return
-    }
-    
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredentials) => {
-     const user = userCredentials.user;
-     const database_ref = ref(database);
-     set(child(database_ref,'users/'+user.uid),{
-         email: email,
-         Name : Name,
-         password : password,
-         con_password : con_password,
-         last_login : Date.now()
-     })
-     .then(() => {
-        alert('Registered Successfully!!')
-      })
-      .catch((error) => {
-        var error_code = error.code
-        var error_message = error.message 
-        alert(error_message)
-      });
-      document.getElementById('login_form').reset();
-    })
-    
-    .catch((error) => {
-     var error_code = error.code
-     var error_message = error.message 
-     alert(error_message)
-    });
-  });
-
-  </script>
-  <script src="index.js"></script>
+  
+  <script src="static/register.js"></script>
 </html>
