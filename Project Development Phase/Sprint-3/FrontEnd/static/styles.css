@@ -1,0 +1,45 @@
+body {
+  background: #B993D6;
+  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);
+  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #668ddc, #81bec6);
+
+
+
+@media (min-width: 576px) {
+  .head {
+    font-family: 'Righteous';
+    padding-top: 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+}
+
+.btn.text-uppercase.text-center.text-body.border.rounded.border-dark.shadow-lg {
+  margin-top: 20px;
+}
+
+@media (min-width: 576px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    margin-top: 30px;
+  }
+}
+
+.head {
+  font-family: 'Righteous';
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.centering {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+ion-icon {
+  color: black;
+}
+
