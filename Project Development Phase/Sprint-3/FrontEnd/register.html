@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="static/register.css">
+</head>
+<body>
+  <div class="login">
+    <form class="login_card" id="login_form" method='POST'>
+        <div class="direct_login">
+            <div class="google">
+                  <img src="../static/google.png" alt="Google icon">
+                  <a><p id="googleBtn">&nbsp Continue with Google</p></a>
+            </div>
+            <div class="github">
+                <img src="../static/github.png" alt="Github icon">
+                <a><p id="githubBtn">&nbsp Continue with Github</p></a>
+            </div>
+        </div>
+      <input type="text" name="name" id="name" placeholder="Name" >
+      <input type="email" name="email" id="email" placeholder="Email" >
+      <div class="password">
+        <input type="text" name="password" id="password" placeholder="Password" >
+        <i class="fa fa-eye" aria-hidden="true" onclick="hide_password()"></i>
+      </div>
+      <div class="password">
+        <input type="text" name="con_password" id="con_password" placeholder="Confirm Password" >
+        <i class="fa fa-eye" aria-hidden="true" onclick="hide_con_password()"></i>
+      </div>
+    <input type="submit" id="submitData" value="Sign In">
+      
+      
+    </form>  
+    <a id="account" href="/">Already have an account?</a>
+  </div>
+  </body>
+  
+  <script src="static/register.js"></script>
+</html>
