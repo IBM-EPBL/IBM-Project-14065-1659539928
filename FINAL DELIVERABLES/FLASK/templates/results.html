@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Employee Attrition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center" data-bs-hover-animate="pulse" style="font-family: Righteous, cursive;margin-top: 80px;margin-bottom: 20px;">Prediction</h1>
+    </div>
+    <div class="container" data-aos="zoom-in" data-aos-delay="500" style="margin-top: 80px;margin-bottom: 40px;"><div class="align-middle" style="text-align:center; font-size:20px">{{ pred_text }}</div></div>
+    <div class="container" style="margin-top: 80px;margin-bottom: 40px;"><a class="btn btn-block text-uppercase text-center text-dark border-dark shadow-lg d-flex justify-content-center align-items-center" role="button" data-aos="zoom-in" data-aos-delay="700" style="margin-left: auto;margin-right: auto;width: 275px;margin-top: 40px;margin-bottom: 20px;"
+            href="{{ url_for('home') }}">Make another prediction</a></div>
+    <div class="container" style="margin-top: 80px;margin-bottom: 40px;"><a class="btn btn-block text-uppercase text-center text-dark border-dark shadow-lg d-flex justify-content-center align-items-center" role="button" data-aos="zoom-in" data-aos-delay="700" style="margin-left: auto;margin-right: auto;width: 275px;margin-top: 40px;margin-bottom: 20px;"
+                href="/">Logout</a></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='bs-init.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+</body>
+
+</html>
